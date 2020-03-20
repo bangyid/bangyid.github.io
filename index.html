@@ -141,20 +141,44 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/20/hello-world/">
-        <p class="h4 index-header">Hello World</p>
+      <a href="/2020/03/20/dockerfile/">
+        <p class="h4 index-header">Docker Dockerfile</p>
       </a>
 
-      <a href="/2020/03/20/hello-world/">
+      <a href="/2020/03/20/dockerfile/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server$ hexo server</div>
+          <div class="index-text mb-1">什么是DockerfileDockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。 
+
+对于开发人员：可以为开发团队提供一个完全一致的开发环境；
+对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件构建一个新的镜像开始工作了；
+对于运维人员：在部署时，可以实现应用的无缝移植。
+
+
+
+
+命令
+作用
+
+
+
+FROM image_name:tag
+定义了使用哪个基础镜像启动构建
+
+
+MAINTAINER  user_name
+声明镜像的创建者
+
+
+ENV key value
+设置环境变量，（可以写多条）
+
+
+RUN command
+构建</div>
         </div>
       </a>
 
@@ -163,6 +187,13 @@ Run server$ hexo server</div>
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-20&nbsp;&nbsp;
         
         
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Docker/">Docker</a>&nbsp;
+          
+            <a href="/tags/%E5%AE%B9%E5%99%A8/">容器</a>&nbsp;
+          
         
       </div>
     </div>

@@ -4,13 +4,21 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2020/03/20/hello-world/"/>
-    <url>/2020/03/20/hello-world/</url>
+    <title>Docker Dockerfile</title>
+    <link href="/2020/03/20/dockerfile/"/>
+    <url>/2020/03/20/dockerfile/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="什么是Dockerfile"><a href="#什么是Dockerfile" class="headerlink" title="什么是Dockerfile"></a>什么是Dockerfile</h2><p>Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个<br>新的镜像。 </p><ul><li>对于开发人员：可以为开发团队提供一个完全一致的开发环境；</li><li>对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件构建一个新<br>的镜像开始工作了；</li><li>对于运维人员：在部署时，可以实现应用的无缝移植。<br><img src="/2020/03/20/dockerfile/image.png" srcset="/img/loading.gif" alt="image"></li></ul><table><thead><tr><th>命令</th><th align="center">作用</th></tr></thead><tbody><tr><td>FROM image_name:tag</td><td align="center">定义了使用哪个基础镜像启动构建</td></tr><tr><td>MAINTAINER  user_name</td><td align="center">声明镜像的创建者</td></tr><tr><td>ENV key value</td><td align="center">设置环境变量，（可以写多条）</td></tr><tr><td>RUN command</td><td align="center">构建镜像时运行的Shell命令，是Dockerfile的核心部分（可以写多条）</td></tr><tr><td>ADD source_dir/filedest_dir/file</td><td align="center">拷贝文件或目录到镜像中，如果是一个压缩文件， 将会在复制后自动解压</td></tr><tr><td>COPY source_dir/filedest_dir/file</td><td align="center">和ADD相似，只是不支持自动下载和解压</td></tr><tr><td>WORKDIR path_dir</td><td align="center">设置工作目录，类似cd</td></tr><tr><td>EXPOST port1 port2</td><td align="center">用来指定端口，使容器内的应用通过端口和外界交互</td></tr><tr><td>CMD argument</td><td align="center">启动容器时执行的Shell命令，构建容器时使用会被docker run参数覆盖</td></tr><tr><td>ENTRYPOINT argument</td><td align="center">和CMD相似，只是由ENTRYPOINT启动的程序不会被docker run命令行指定的参数所覆盖</td></tr><tr><td>VOLUME</td><td align="center">指定容器挂载点到宿主机自动生成的目录或其他容器，一般不会在Dockerfile用到，更常见的还是在docker run的时候指定-v数据卷。</td></tr></tbody></table><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>使用DockerFile来创建JDK1.8镜像</p><ol><li>创建目录<br><code>mkdir –p /home/temp/dockerjdk8</code></li><li>下载jdk-8u171-linux-x64.tar.gz并上传到服务器（虚拟机）中的/home/temp/dockerjdk8目录<br><code>scp jdk-8u171-linux-x64.tar.gz root@ailyun1</code></li><li>创建文件Dockerfile<br><code>cd /home/temp/dockerjdk8 vim Dockerfile #依赖镜像名称和ID FROM centos:7 #指定镜像创建者信息 MAINTAINER ITCAST #切换工作目录 相当于cd WORKDIR /usr RUN mkdir /usr/local/java #ADD 是相对路径jar,把java添加到容器中 ADD jdk‐8u171‐linux‐x64.tar.gz /usr/local/java/ #配置java环境变量 ENV JAVA_HOME /usr/local/java/jdk1.8.0_171 ENV JRE_HOME $JAVA_HOME/jre ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH ENV PATH $JAVA_HOME/bin:$PATH</code></li><li>执行命令构建镜像<br><code>docker build ‐t=&#39;jdk1.8&#39;</code></li></ol>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>Docker</tag>
+      
+      <tag>容器</tag>
+      
+    </tags>
     
   </entry>
   
