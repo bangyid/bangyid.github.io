@@ -125,7 +125,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    576 字
+                    580 字
                   </span>
                 
 
@@ -223,7 +223,7 @@
 <ol>
 <li>创建目录<br><code>mkdir –p /home/temp/dockerjdk8</code></li>
 <li>下载jdk-8u171-linux-x64.tar.gz并上传到服务器（虚拟机）中的/home/temp/dockerjdk8目录<br><code>scp jdk-8u171-linux-x64.tar.gz root@ailyun1</code></li>
-<li>创建文件Dockerfile<br><code>cd /home/temp/dockerjdk8
+<li>创建文件Dockerfile <pre><code> cd /home/temp/dockerjdk8 &lt;br/&gt;
  vim Dockerfile
  #依赖镜像名称和ID
  FROM centos:7
@@ -239,7 +239,7 @@
  ENV JRE_HOME $JAVA_HOME/jre
  ENV CLASSPATH
  $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH
- ENV PATH $JAVA_HOME/bin:$PATH</code></li>
+ ENV PATH $JAVA_HOME/bin:$PATH</code></pre></li>
 <li>执行命令构建镜像<br><code>docker build ‐t=&#39;jdk1.8&#39;</code></li>
 </ol>
 
