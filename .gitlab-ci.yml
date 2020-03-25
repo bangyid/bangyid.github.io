@@ -5,7 +5,7 @@ deploy:
     script:
       - echo "start deploy....."
       - cd /home
-      - ./deploybf.sh
+      - ./deploy.sh
     only:
       - master
     tags:

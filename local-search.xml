@@ -4,25 +4,6 @@
   
   
   <entry>
-    <title>test</title>
-    <link href="/2020/03/25/test/"/>
-    <url>/2020/03/25/test/</url>
-    
-    <content type="html"><![CDATA[<p>最后一次,测试GitLab自动部署</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>-test</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Docker Dockerfile</title>
     <link href="/2020/03/20/dockerfile/"/>
     <url>/2020/03/20/dockerfile/</url>
