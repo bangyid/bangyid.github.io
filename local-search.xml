@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>GitLabCi持续部署Hexo博客</title>
+    <link href="/2020/03/26/GitLabCi%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2020/03/26/GitLabCi%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<p>明天慢慢写</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>GitLab</tag>
+      
+      <tag>持续集成</tag>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Docker Dockerfile</title>
     <link href="/2020/03/20/dockerfile/"/>
     <url>/2020/03/20/dockerfile/</url>
